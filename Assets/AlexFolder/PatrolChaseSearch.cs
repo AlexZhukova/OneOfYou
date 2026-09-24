@@ -10,7 +10,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] private float searchTime = 3f;    // Seconds to linger where the player vanished
 
     private enum Mode { Patrol, Chase, Search }
-    private Mode mode = Mode.Patrol;
+    [SerializeField] private Mode mode = Mode.Patrol;
 
     private NavMeshAgent agent;
     private Transform player;
