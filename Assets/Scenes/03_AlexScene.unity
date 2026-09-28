@@ -474,7 +474,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 6.36, y: 0, z: -8.08}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1368879176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,3 +1420,5 @@ SceneRoots:
   - {fileID: 1748418988}
   - {fileID: 2100586900}
   - {fileID: 939578170}
+  - {fileID: 1939417519}
+  - {fileID: 2040134490}
