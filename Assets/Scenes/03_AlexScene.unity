@@ -648,6 +648,8 @@ GameObject:
   - component: {fileID: 1748418985}
   - component: {fileID: 1748418984}
   - component: {fileID: 1748418989}
+  - component: {fileID: 1748418990}
+  - component: {fileID: 1748418991}
   m_Layer: 0
   m_Name: testEnemy
   m_TagString: Untagged
@@ -790,6 +792,40 @@ MonoBehaviour:
   searchTime: 3
   mode: 0
   stoppingDistance: 0
+--- !u!95 &1748418990
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748418979}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca37edaaff95c5442ad64460722e8f64, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1748418991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748418979}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8d2c36b464b88a409008d6875b8e675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompanionAnimationController
 --- !u!1 &1939417515
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,3 +1456,5 @@ SceneRoots:
   - {fileID: 1748418988}
   - {fileID: 2100586900}
   - {fileID: 939578170}
+  - {fileID: 1939417519}
+  - {fileID: 2040134490}
