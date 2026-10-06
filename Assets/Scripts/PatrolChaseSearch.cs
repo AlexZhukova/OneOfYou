@@ -12,6 +12,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] private float idleTime = 2f;      // Seconds to stay idle
     [SerializeField] private Transform deatharea; // Point to reset the player position after idle
     [SerializeField] public TextMeshProUGUI dialogueText; // Reference to the TextMeshProUGUI component for dialogue display
+    //[SerializeField] public RawImage dialogueWindow; // Reference to the RawImage component for the dialogue window
     [SerializeField] public TextMeshProUGUI timerText; 
 
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
@@ -109,6 +110,7 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Idle", true); 
                 timerText.GetComponent<TextMeshProUGUI>().enabled = true;
                 dialogueText.GetComponent<TextMeshProUGUI>().enabled = true;
+                //dialogueWindow.GetComponent<RawImage>().enabled = true;
                 Time.timeScale = 0f; // Pause the game
                 idleTimer += Time.unscaledDeltaTime; // Use unscaledDeltaTime to count time while the game is paused
                 timerText.text = idleTimer.ToString("F2"); // Display the idle timer with 2 decimal places
@@ -116,6 +118,9 @@ public class GuardAI : MonoBehaviour
                 {
                     Time.timeScale = 1f; // Resume the game
                     idleTimer = 0f;
+                    timerText.GetComponent<TextMeshProUGUI>().enabled = false;
+                    dialogueText.GetComponent<TextMeshProUGUI>().enabled = false;
+                    //dialogueWindow.GetComponent<RawImage>().enabled = false;
                     player.transform.position = deatharea.position; // Reset player position to death area
                 }
                 if (idleTimer >= idleTime && playerDead == false)
@@ -123,6 +128,9 @@ public class GuardAI : MonoBehaviour
                     Time.timeScale = 1f; // Resume the game
                     idleTimer = 0f;
                     mode = Mode.Wander; // Switch to Wander mode after idle
+                    timerText.GetComponent<TextMeshProUGUI>().enabled = false;
+                    dialogueText.GetComponent<TextMeshProUGUI>().enabled = false;
+                    //dialogueWindow.GetComponent<RawImage>().enabled = false;
                 }
                 break;
             case Mode.Wander:
