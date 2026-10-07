@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ddf765d5e82a46248ac5c5707d90096a
+guid: af17869cdac34d541be989b017a3986b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 314725746338704250
-    second: dialogue_box_0
+      213: -5854926709002125323
+    second: bodypart-clothes_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dialogue_box_0
+      name: bodypart-clothes_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 1000
+        width: 1921
+        height: 2508
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7b203816612e5400800000000000000
-      internalID: 314725746338704250
+      spriteID: 5ff3bfbcd2f1fbea0800000000000000
+      internalID: -5854926709002125323
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dialogue_box_0: 314725746338704250
+      bodypart-clothes_0: -5854926709002125323
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
