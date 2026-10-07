@@ -107,7 +107,7 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Patrol", false);
                 animator.SetBool("Chase", false);
                 animator.SetBool("Search", false);
-                animator.SetBool("Idle", true); 
+                animator.SetBool("Idle", true);
                 timerText.GetComponent<TextMeshProUGUI>().enabled = true;
                 dialogueText.GetComponent<TextMeshProUGUI>().enabled = true;
                 //dialogueWindow.GetComponent<RawImage>().enabled = true;
@@ -120,13 +120,25 @@ public class GuardAI : MonoBehaviour
                     idleTimer = 0f;
                     timerText.GetComponent<TextMeshProUGUI>().enabled = false;
                     dialogueText.GetComponent<TextMeshProUGUI>().enabled = false;
-                    //dialogueWindow.GetComponent<RawImage>().enabled = false;
-                    player.transform.position = deatharea.position; // Reset player position to death area
+
+                    // Disable CharacterController to prevent it from interfering with teleport
+                    CharacterController characterController = player.GetComponent<CharacterController>();
+                    if (characterController != null) characterController.enabled = false;
+
+                    // Teleport player
+                    player.position = deatharea.position;
+
+                    // Re-enable CharacterController
+                    if (characterController != null) characterController.enabled = true;
+
+                    agent.stoppingDistance = 0.1f;
+                    mode = Mode.Patrol;
                 }
                 if (idleTimer >= idleTime && playerDead == false)
                 {
                     Time.timeScale = 1f; // Resume the game
                     idleTimer = 0f;
+                    agent.stoppingDistance = stoppingDistance; // Reset stopping distance before returning to wander
                     mode = Mode.Wander; // Switch to Wander mode after idle
                     timerText.GetComponent<TextMeshProUGUI>().enabled = false;
                     dialogueText.GetComponent<TextMeshProUGUI>().enabled = false;
