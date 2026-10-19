@@ -2075,17 +2075,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 10, z: 10}
   m_Center: {x: 0, y: 5, z: 0}
---- !u!114 &1193835897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1193835891}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.44, y: 1.19, z: 4.1877875}
-  m_Center: {x: -0.06476483, y: -0.13220423, z: 2.0479152}
 --- !u!1 &1193835891
 GameObject:
   m_ObjectHideFlags: 0
