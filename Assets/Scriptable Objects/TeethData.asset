@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Teeth
   icon: {fileID: -7651925603166516162, guid: f6486dbd26ed1904c990eaea7850c870, type: 3}
+  Buttonprefab: {fileID: 1742267795433829571, guid: 9cfc96c6fc6a3d9469d8804efd653c75, type: 3}
