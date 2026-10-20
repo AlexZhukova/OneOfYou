@@ -11,8 +11,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] private float searchTime = 3f;    // Seconds to linger where the player vanished
     [SerializeField] private float idleTime = 2f;      // Seconds to stay idle
     [SerializeField] private Transform deatharea; // Point to reset the player position after idle
-    [SerializeField] public TextMeshProUGUI dialogueText; // Reference to the TextMeshProUGUI component for dialogue display
-    //[SerializeField] public RawImage dialogueWindow; // Reference to the RawImage component for the dialogue window
+    [SerializeField] public GameObject dialogueText; // Reference to the TextMeshProUGUI component for dialogue display
     [SerializeField] public TextMeshProUGUI timerText; 
 
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
@@ -30,6 +29,7 @@ public class GuardAI : MonoBehaviour
 
     void Start()
     {
+        dialogueText.SetActive(false);
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
@@ -109,8 +109,8 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Search", false);
                 animator.SetBool("Idle", true);
                 timerText.GetComponent<TextMeshProUGUI>().enabled = true;
-                dialogueText.GetComponent<TextMeshProUGUI>().enabled = true;
-                //dialogueWindow.GetComponent<RawImage>().enabled = true;
+                dialogueText.SetActive(true);
+                dialogueText.GetComponent<CursorEnabler>().EnableCursor(); // Enable cursor when dialogue is active
                 Time.timeScale = 0f; // Pause the game
                 idleTimer += Time.unscaledDeltaTime; // Use unscaledDeltaTime to count time while the game is paused
                 timerText.text = idleTimer.ToString("F2"); // Display the idle timer with 2 decimal places
@@ -119,7 +119,7 @@ public class GuardAI : MonoBehaviour
                     Time.timeScale = 1f; // Resume the game
                     idleTimer = 0f;
                     timerText.GetComponent<TextMeshProUGUI>().enabled = false;
-                    dialogueText.GetComponent<TextMeshProUGUI>().enabled = false;
+                    dialogueText.SetActive(false);
 
                     // Disable CharacterController to prevent it from interfering with teleport
                     CharacterController characterController = player.GetComponent<CharacterController>();
@@ -141,8 +141,8 @@ public class GuardAI : MonoBehaviour
                     agent.stoppingDistance = stoppingDistance; // Reset stopping distance before returning to wander
                     mode = Mode.Wander; // Switch to Wander mode after idle
                     timerText.GetComponent<TextMeshProUGUI>().enabled = false;
-                    dialogueText.GetComponent<TextMeshProUGUI>().enabled = false;
-                    //dialogueWindow.GetComponent<RawImage>().enabled = false;
+                    dialogueText.SetActive(false);
+                   dialogueText.GetComponent<CursorEnabler>().DisableCursor(); // Disable cursor when dialogue is inactive
                 }
                 break;
             case Mode.Wander:
