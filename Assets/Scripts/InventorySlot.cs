@@ -9,6 +9,8 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     public TextMeshProUGUI labelText;
 
+    ItemData itemData;
+
     public void ClearSlot()
     {
         icon.enabled = false;
@@ -19,7 +21,7 @@ public class InventorySlot : MonoBehaviour
     {
         if (item == null)
         {
-                        ClearSlot();
+            ClearSlot();
             return;
         }
  
@@ -27,5 +29,21 @@ public class InventorySlot : MonoBehaviour
         labelText.enabled = true;   
         icon.sprite = item.itemData.icon;
         labelText.text = item.itemData.itemName;
+        itemData = item.itemData;
+    }
+
+    public void OnSlotClicked()
+    {
+        if (itemData != null)
+        {
+            Debug.Log($"Clicked on slot with item: {itemData.itemName}");
+        }
+        foreach (var guard in GuardAI.guards)
+        {
+            if (guard.itemData == itemData)
+            {
+                guard.playerDead = false;
+            }
+        }
     }
 }

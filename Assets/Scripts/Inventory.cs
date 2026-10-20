@@ -5,6 +5,9 @@ using System;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance;
+    void Awake() => Instance = this;
+
     public static event Action<List<InventoryItem>> OnInventoryChanged;
     public List<InventoryItem> inventory = new List<InventoryItem>();
     private void OnEnable()
@@ -17,5 +20,5 @@ public class Inventory : MonoBehaviour
         inventory.Add(newItem);
         OnInventoryChanged?.Invoke(inventory);
     }
-
+    
 }
