@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,7 +15,7 @@ public class GuardAI : MonoBehaviour
     [SerializeField] private Transform deatharea; // Point to reset the player position after idle
     [SerializeField] public GameObject dialogueText; // Reference to the TextMeshProUGUI component for dialogue display
     [SerializeField] public TextMeshProUGUI timerText; 
-
+    public ItemData itemData; // Reference to the ItemData scriptable object <-- DRAG THIS INTO THE INSPECTOR
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
     [SerializeField] private Mode mode = Mode.Patrol;
 
@@ -26,6 +28,13 @@ public class GuardAI : MonoBehaviour
     private Animator animator;
     public float stoppingDistance;
     public bool playerDead = true;
+    
+    public static List<GuardAI> guards = new List<GuardAI>(); 
+
+    private void Awake()
+    {
+        guards.Add(this);
+    }
 
     void Start()
     {
@@ -155,4 +164,6 @@ public class GuardAI : MonoBehaviour
                 break;  
         }
     }
+
+
 }
