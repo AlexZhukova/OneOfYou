@@ -10,7 +10,6 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
-
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -43,7 +42,6 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-
     wrapW: 0
   nPOTScale: 0
   lightmap: 0
@@ -107,9 +105,9 @@ TextureImporter:
       name: start_hands_0
       rect:
         serializedVersion: 2
-        x: 442
+        x: 445
         y: 27
-        width: 555
+        width: 552
         height: 877
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -129,9 +127,9 @@ TextureImporter:
       name: start_hands_2
       rect:
         serializedVersion: 2
-        x: 1562
+        x: 1563
         y: 27
-        width: 556
+        width: 551
         height: 877
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -141,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5eaba27b1eb59f41aa02f0a6e6cb2a9
-      internalID: -1443243644
+      spriteID: 0e93e4140b545f74dae988276c42a074
+      internalID: 619213663
       vertices: []
       indices: 
       edges: []
@@ -151,7 +149,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 4824be0412e404146b604ab2941ae8d7
     internalID: 0
     vertices: []
     indices: 
@@ -164,23 +162,23 @@ TextureImporter:
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       start_hands_0: 4086187571501143401
-      start_hands_1: -1262574419
-      start_hands_10: 2017514721
-      start_hands_11: 954537272
-      start_hands_12: -1576644679
-      start_hands_13: -1423019413
-      start_hands_14: 786454228
-      start_hands_15: 1882990873
-      start_hands_16: -561577864
-      start_hands_17: -1506141857
-      start_hands_2: -1443243644
-      start_hands_3: -812145923
-      start_hands_4: 404179705
-      start_hands_5: 777443495
-      start_hands_6: 1373477311
-      start_hands_7: -752743084
-      start_hands_8: 404099508
-      start_hands_9: -855299678
+      start_hands_1: 1418563443
+      start_hands_10: 49541280
+      start_hands_11: -1114430438
+      start_hands_12: 1512667924
+      start_hands_13: -2005324670
+      start_hands_14: -352881731
+      start_hands_15: 224412433
+      start_hands_16: 1780994109
+      start_hands_17: 8980504
+      start_hands_2: 619213663
+      start_hands_3: -1749276354
+      start_hands_4: -169808837
+      start_hands_5: -182899732
+      start_hands_6: 677328925
+      start_hands_7: -190879441
+      start_hands_8: 1743287224
+      start_hands_9: 610679229
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
