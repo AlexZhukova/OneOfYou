@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public bool controlsLocked = false;
     public float speed = 5f;
     private CharacterController controller;
 
@@ -18,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if(controlsLocked)
+            return;
+       
         if (controller.isGrounded && velocityY < 0)
         {
             velocityY = -2f;

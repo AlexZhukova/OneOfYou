@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool controlsLocked = false;
+
     public float moveSpeed = 5f;
     public float runSpeed = 10f;
     public float crouchSpeed = 2.5f;
@@ -74,15 +76,18 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         characterController.Move((moveDirection * currentMoveSpeed + playerVelocity) * Time.deltaTime);
 
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
+        if (!controlsLocked)
+        {
+            float mouseX = Input.GetAxis("Mouse X");
+            float mouseY = Input.GetAxis("Mouse Y");
 
-        transform.Rotate(0, mouseX * lookSpeed, 0);
+            transform.Rotate(0, mouseX * lookSpeed, 0);
 
-        pitch -= mouseY * lookSpeed;
-        pitch = Mathf.Clamp(pitch, -90f, 90f);
-        playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+            pitch -= mouseY * lookSpeed;
+            pitch = Mathf.Clamp(pitch, -90f, 90f);
 
+            playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
+        }
 
     }
 
@@ -100,5 +105,15 @@ public class PlayerController : MonoBehaviour
         }
 
         isCrouching = !isCrouching;
+    }
+
+    public void ResetCameraLook()
+    {
+        pitch = 0f;
+        playerCamera.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+    }
+    public void ResetCameraPitch()
+    {
+        pitch = 0f;
     }
 }
