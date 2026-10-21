@@ -11,15 +11,17 @@ public class InventorySlot : MonoBehaviour
         if (item == null)
             return;
 
-        icon.sprite = item.itemData.icon;
+        itemData = item.itemData;
+
+        icon.sprite = itemData.icon;
         icon.enabled = true;
     }
     public void OnSlotClicked()
     {
         if (itemData != null)
-        {
-            Debug.Log($"Clicked on slot with item: {itemData.itemName}");
-        }
+            return;
+       
+        Debug.Log($"Clicked on slot with item: {itemData.itemName}");
         foreach (var guard in GuardAI.guards)
         {
             if (guard.itemData == itemData)

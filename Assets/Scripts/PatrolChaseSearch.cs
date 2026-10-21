@@ -1,20 +1,16 @@
 using System.Collections.Generic;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class GuardAI : MonoBehaviour
 {
+    [SerializeField] private DialogueManager dialogueManager;
     [SerializeField] private Transform[] patrolPoints; // Patrol waypoints
     [SerializeField] private float sightRange = 8f;    // Detection distance
     [SerializeField] private float attackRange = 1.5f; // Attack distance
     [SerializeField] private float searchTime = 3f;    // Seconds to linger where the player vanished
-    [SerializeField] private float idleTime = 2f;      // Seconds to stay idle
     [SerializeField] private Transform deatharea; // Point to reset the player position after idle
-    [SerializeField] public GameObject dialogueText; // Reference to the TextMeshProUGUI component for dialogue display
-    [SerializeField] public TextMeshProUGUI timerText; 
     public ItemData itemData; // Reference to the ItemData scriptable object <-- DRAG THIS INTO THE INSPECTOR
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
     [SerializeField] private Mode mode = Mode.Patrol;
@@ -24,12 +20,11 @@ public class GuardAI : MonoBehaviour
     private int patrolIndex = 0;
     private Vector3 lastKnownPosition;
     private float searchTimer;
-    private float idleTimer;
     private Animator animator;
     public float stoppingDistance;
     public bool playerDead = true;
-    
-    public static List<GuardAI> guards = new List<GuardAI>(); 
+
+    public static List<GuardAI> guards = new List<GuardAI>();
 
     private void Awake()
     {
@@ -38,7 +33,6 @@ public class GuardAI : MonoBehaviour
 
     void Start()
     {
-        dialogueText.SetActive(false);
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
 
@@ -86,6 +80,11 @@ public class GuardAI : MonoBehaviour
                     {
                         // Attack logic here
                         Debug.Log("Dialogue with the player!");
+
+                        agent.isStopped = true;
+
+                        dialogueManager.StartDialogue(this);
+
                         mode = Mode.Idle;
                     }
                 }
@@ -117,42 +116,6 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Chase", false);
                 animator.SetBool("Search", false);
                 animator.SetBool("Idle", true);
-                timerText.GetComponent<TextMeshProUGUI>().enabled = true;
-                dialogueText.SetActive(true);
-                dialogueText.GetComponent<CursorEnabler>().EnableCursor(); // Enable cursor when dialogue is active
-                Time.timeScale = 0f; // Pause the game
-                idleTimer += Time.unscaledDeltaTime; // Use unscaledDeltaTime to count time while the game is paused
-                timerText.text = idleTimer.ToString("F2"); // Display the idle timer with 2 decimal places
-                if (idleTimer >= idleTime && playerDead == true)
-                {
-                    Time.timeScale = 1f; // Resume the game
-                    idleTimer = 0f;
-                    timerText.GetComponent<TextMeshProUGUI>().enabled = false;
-                    dialogueText.SetActive(false);
-
-                    // Disable CharacterController to prevent it from interfering with teleport
-                    CharacterController characterController = player.GetComponent<CharacterController>();
-                    if (characterController != null) characterController.enabled = false;
-
-                    // Teleport player
-                    player.position = deatharea.position;
-
-                    // Re-enable CharacterController
-                    if (characterController != null) characterController.enabled = true;
-
-                    agent.stoppingDistance = 0.1f;
-                    mode = Mode.Patrol;
-                }
-                if (idleTimer >= idleTime && playerDead == false)
-                {
-                    Time.timeScale = 1f; // Resume the game
-                    idleTimer = 0f;
-                    agent.stoppingDistance = stoppingDistance; // Reset stopping distance before returning to wander
-                    mode = Mode.Wander; // Switch to Wander mode after idle
-                    timerText.GetComponent<TextMeshProUGUI>().enabled = false;
-                    dialogueText.SetActive(false);
-                   dialogueText.GetComponent<CursorEnabler>().DisableCursor(); // Disable cursor when dialogue is inactive
-                }
                 break;
             case Mode.Wander:
                 patrolIndex = (patrolIndex + 1) % patrolPoints.Length; // Patrol points are used for wandering as well, doesn't see the player
@@ -161,9 +124,38 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Chase", false);
                 animator.SetBool("Search", false);
                 animator.SetBool("Idle", false);
-                break;  
+                break;
         }
     }
+    public void DialogueFailed()
+    {
+        playerDead = true;
 
+        CharacterController characterController = player.GetComponent<CharacterController>();
 
+        if (characterController != null)
+            characterController.enabled = false;
+
+        player.position = deatharea.position;
+
+        if (characterController != null)
+            characterController.enabled = true;
+
+        agent.isStopped = false;
+        agent.stoppingDistance = 1.0f;
+
+        mode = Mode.Patrol;
+
+        if (patrolPoints.Length > 0)
+            agent.SetDestination(patrolPoints[patrolIndex].position);
+    }
+    public void DialogueSucceeded()
+    {
+        playerDead = false;
+
+        agent.isStopped = false;
+        agent.stoppingDistance = stoppingDistance;
+
+        mode = Mode.Wander;
+    }
 }
