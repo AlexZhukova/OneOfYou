@@ -10,6 +10,10 @@ public class DialogueAnswerButton : MonoBehaviour, IPointerEnterHandler, IPointe
     [SerializeField] private Color normalColor = Color.white;
     [SerializeField] private Color hoverColor = new Color(1f, 0.5f, 0f);
 
+    public void SetText(string text)
+    {
+        answerText.text = text;
+    }
     private void Start()
     {
         answerText.color = normalColor;
@@ -24,4 +28,5 @@ public class DialogueAnswerButton : MonoBehaviour, IPointerEnterHandler, IPointe
     {
         answerText.color = normalColor;
     }
+ 
 }
