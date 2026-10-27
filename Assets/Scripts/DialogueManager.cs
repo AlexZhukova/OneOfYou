@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
-using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -10,10 +9,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI monsterText;
     [SerializeField] private Slider timerSlider;
-    [SerializeField] private GameObject answersPanel;
-    [SerializeField] private GameObject answerPrefab;
-
-    private DialogueData dialogueData;
 
     [Header("Settings")]
     [SerializeField] private float dialogueTime = 10f;
@@ -62,7 +57,6 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(GuardAI guard)
     {
         currentGuard = guard;
-        dialogueData = guard.DialogueData;
 
         StartCoroutine(SmoothTurnToGuard(guard.transform));
 
@@ -83,7 +77,7 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
 
-        ShowNode(0);
+        monsterText.text = "There's something strange about you...";
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -141,76 +135,4 @@ public class DialogueManager : MonoBehaviour
         playerController.playerCamera.transform.localRotation = targetCameraRotation;
         playerController.ResetCameraPitch();
     }
-
-    private void ShowNode(int nodeIndex)
-    {
-        ClearAnswers();
-
-        DialogueNode node = dialogueData.nodes[nodeIndex];
-
-        monsterText.text = node.monsterText;
-
-        timeRemaining = dialogueTime;
-        timerSlider.value = dialogueTime;
-
-        foreach (DialogueAnswer answer in node.answers)
-        {
-            int nextNodeIndex = answer.nextNodeIndex;
-            CreateAnswer(answer.answerText, () => SelectAnswer(nextNodeIndex));
-        }
-    }
-
-    private void SelectAnswer(int nextNodeIndex)
-    {
-        if (nextNodeIndex == -1)
-        {
-            DialogueSucceeded();
-            return;
-        }
-
-        ShowNode(nextNodeIndex);
-    }
-    private void ClearAnswers()
-    {
-        foreach (Transform child in answersPanel.transform)
-        {
-            Destroy(child.gameObject);
-        }
-    }
-    private void CreateAnswer(string text, UnityAction onClick)
-    {
-        GameObject newAnswer = Instantiate(answerPrefab, answersPanel.transform);
-
-        DialogueAnswerButton answerButton = newAnswer.GetComponent<DialogueAnswerButton>();
-        answerButton.SetText(text);
-
-        Button button = newAnswer.GetComponent<Button>();
-        button.onClick.AddListener(onClick);
-    }
-    private void DialogueSucceeded()
-    {
-        dialogueActive = false;
-
-        Debug.Log("Dialogue succeeded!");
-
-        ClearAnswers();
-        dialoguePanel.SetActive(false);
-
-        Time.timeScale = 1f;
-
-        if (playerMovement != null)
-        {
-            playerMovement.controlsLocked = false;
-        }
-        if (playerController != null)
-        {
-            playerController.controlsLocked = false;
-        }
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
-        currentGuard.DialogueSucceeded();
-    }
-
 }

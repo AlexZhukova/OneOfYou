@@ -6,11 +6,6 @@ using UnityEngine.AI;
 public class GuardAI : MonoBehaviour
 {
     [SerializeField] private DialogueManager dialogueManager;
-
-    [Header("Dialogue")]
-    [SerializeField] private DialogueData dialogueData;
-    public DialogueData DialogueData => dialogueData;
-
     [SerializeField] private Transform[] patrolPoints; // Patrol waypoints
     [SerializeField] private float sightRange = 8f;    // Detection distance
     [SerializeField] private float attackRange = 1.5f; // Attack distance
@@ -19,8 +14,6 @@ public class GuardAI : MonoBehaviour
     public ItemData itemData; // Reference to the ItemData scriptable object <-- DRAG THIS INTO THE INSPECTOR
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
     [SerializeField] private Mode mode = Mode.Patrol;
-
-
 
     private NavMeshAgent agent;
     private Transform player;
