@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class InventorySlot : MonoBehaviour
 {
     public Image icon;
     public ItemData itemData;
+    public static event Action<ItemData> OnItemClicked;
 
     public void DrawSlot(InventoryItem item)
     {
@@ -18,16 +20,11 @@ public class InventorySlot : MonoBehaviour
     }
     public void OnSlotClicked()
     {
-        if (itemData != null)
+        if (itemData == null)
             return;
        
         Debug.Log($"Clicked on slot with item: {itemData.itemName}");
-        foreach (var guard in GuardAI.guards)
-        {
-            if (guard.itemData == itemData)
-            {
-                guard.playerDead = false;
-            }
-        }
+
+        OnItemClicked?.Invoke(itemData);
     }
 }

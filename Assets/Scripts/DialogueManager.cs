@@ -12,6 +12,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private Slider timerSlider;
     [SerializeField] private GameObject answersPanel;
     [SerializeField] private GameObject answerPrefab;
+    [SerializeField] private BodyPartQTEManager bodyPartQTEManager;
 
     private DialogueData dialogueData;
 
@@ -25,7 +26,14 @@ public class DialogueManager : MonoBehaviour
     private PlayerController playerController;
     private Transform playerTransform;
     [SerializeField] private float turnSpeed = 5f;
-
+    private void OnEnable()
+    {
+        InventorySlot.OnItemClicked += OnBodyPartSelected;
+    }
+    private void OnDisable()
+    {
+        InventorySlot.OnItemClicked -= OnBodyPartSelected;
+    }
     private void Start()
     {
         dialoguePanel.SetActive(false);
@@ -164,7 +172,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (nextNodeIndex == -1)
         {
-            DialogueSucceeded();
+            StartBodyPartQTE();
             return;
         }
 
@@ -212,5 +220,44 @@ public class DialogueManager : MonoBehaviour
 
         currentGuard.DialogueSucceeded();
     }
+    private void OnBodyPartSelected(ItemData selectedItem)
+    {
+        if (!dialogueActive)
+            return;
 
+        Debug.Log("Selected body part during dialogue: " + selectedItem.itemName);
+
+    }
+    private void StartBodyPartQTE()
+    {
+        dialogueActive = false;
+
+        ClearAnswers();
+        dialoguePanel.SetActive(false);
+
+        bodyPartQTEManager.StartTestQTE(currentGuard.itemData, this);
+    }
+    public void QTESucceeded()
+    {
+        Debug.Log("QTE returned SUCCESS to DialogueManager");
+
+        dialogueActive = false;
+
+        dialoguePanel.SetActive(true);
+
+        ClearAnswers();
+
+        monsterText.text = "Oh... You're fine. See you around.";
+
+        timerSlider.value = 0f;
+
+        CreateAnswer("See you.", DialogueSucceeded);
+    }
+
+    public void QTEFailed()
+    {
+        Debug.Log("QTE returned FAILED to DialogueManager");
+
+        DialogueFailed();
+    }
 }
