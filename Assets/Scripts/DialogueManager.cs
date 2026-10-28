@@ -247,11 +247,11 @@ public class DialogueManager : MonoBehaviour
 
         ClearAnswers();
 
-        monsterText.text = "Oh... You're fine. See you around.";
+        monsterText.text = dialogueData.successMonsterText;
 
         timerSlider.value = 0f;
 
-        CreateAnswer("See you.", DialogueSucceeded);
+        CreateAnswer(dialogueData.successPlayerAnswer, DialogueSucceeded);
     }
 
     public void QTEFailed()

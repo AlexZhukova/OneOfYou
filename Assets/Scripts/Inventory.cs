@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     {
         InventoryItem newItem = new InventoryItem(itemData);
         inventory.Add(newItem);
+
         OnInventoryChanged?.Invoke(inventory);
     }
     

@@ -23,3 +23,5 @@ MonoBehaviour:
       nextNodeIndex: -1
     - answerText: 'There''s nothing wrong with them. '
       nextNodeIndex: -1
+  successMonsterText: Oh... You're fine. See you around.
+  successPlayerAnswer: I told you
