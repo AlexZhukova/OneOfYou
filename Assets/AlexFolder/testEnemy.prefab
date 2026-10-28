@@ -11,11 +11,11 @@ GameObject:
   - component: {fileID: 1198881691749478651}
   - component: {fileID: 1720166702681944138}
   - component: {fileID: 1811033815728020447}
+  - component: {fileID: 7744425281468444081}
   - component: {fileID: 1375513010113032771}
   - component: {fileID: 8552871466102895842}
   - component: {fileID: 3458422464388649598}
   - component: {fileID: 1220461972076155241}
-  - component: {fileID: 6528231982320666473}
   m_Layer: 0
   m_Name: testEnemy
   m_TagString: Untagged
@@ -95,6 +95,26 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7744425281468444081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233522404940094597}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51652c35720b77642904717c8770d822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToonShaderTestRig
+  bandCount: 5
+  specSize: 0.567
+  shadowTint: {r: 1, g: 0.6245283, b: 0.6245283, a: 1}
+  targetMaterials:
+  - {fileID: 2100000, guid: ef9881b0a4ab5b040ba9f3aceeef3984, type: 2}
+  - {fileID: 2100000, guid: ec466a87472e68b47b7a3ffe183b2ea6, type: 2}
+  pushGlobals: 0
+  applyToMaterialsInEditMode: 0
 --- !u!65 &1375513010113032771
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -150,17 +170,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f4f54cecbaa984d97887e53b7676a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardAI
+  dialogueManager: {fileID: 0}
+  dialogueData: {fileID: 0}
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
   sightRange: 8
   attackRange: 1.5
   searchTime: 3
-  idleTime: 2
   deatharea: {fileID: 0}
+  itemData: {fileID: 0}
   mode: 0
   stoppingDistance: 8
-  playerDead: 0
+  playerDead: 1
 --- !u!95 &1220461972076155241
 Animator:
   serializedVersion: 7
@@ -183,15 +205,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6528231982320666473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1233522404940094597}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8d2c36b464b88a409008d6875b8e675, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CompanionAnimationController
