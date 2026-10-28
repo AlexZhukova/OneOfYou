@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EyeData
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Eye
-  icon: {fileID: -2924245084256725155, guid: 50dcaa3410264e647a45789813c99bb5, type: 3}
+  icon: {fileID: 21300000, guid: 50dcaa3410264e647a45789813c99bb5, type: 3}
   Buttonprefab: {fileID: 0}

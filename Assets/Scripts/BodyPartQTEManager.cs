@@ -36,6 +36,8 @@ public class BodyPartQTEManager : MonoBehaviour
             Debug.Log("QTE FAILED! Time is over!");
 
             qtePanel.SetActive(false);
+            ClearBodyParts();
+
             dialogueManager.QTEFailed();
         }
     }
@@ -111,6 +113,8 @@ public class BodyPartQTEManager : MonoBehaviour
             Debug.Log("QTE SUCCESS! Correct body part: " + selectedItem.itemName);
 
             qtePanel.SetActive(false);
+            ClearBodyParts();
+
             dialogueManager.QTESucceeded();
         }
         else
@@ -120,7 +124,16 @@ public class BodyPartQTEManager : MonoBehaviour
             Debug.Log("QTE FAILED! Wrong body part: " + selectedItem.itemName);
 
             qtePanel.SetActive(false);
+            ClearBodyParts();
+
             dialogueManager.QTEFailed();
+        }
+    }
+    private void ClearBodyParts()
+    {
+        foreach (Transform child in bodyPartsContainer)
+        {
+            Destroy(child.gameObject);
         }
     }
 }
