@@ -301,7 +301,14 @@ PlayerSettings:
   AndroidAppBundleSizeToValidate: 150
   AndroidReportGooglePlayAppDependencies: 1
   androidSymbolsSizeThreshold: 800
-  m_BuildTargetIcons: []
+  m_BuildTargetIcons:
+  - m_BuildTarget: 
+    m_Icons:
+    - serializedVersion: 2
+      m_Icon: {fileID: 2800000, guid: a507816e24d89a4489fe9f60f0856075, type: 3}
+      m_Width: 128
+      m_Height: 128
+      m_Kind: 0
   m_BuildTargetPlatformIcons:
   - m_BuildTarget: iPhone
     m_Icons:
@@ -936,11 +943,11 @@ PlayerSettings:
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
   enableDirectStorage: 0
-  cloudProjectId: 7ccbdcae-b09b-4e6e-898d-d1cb4f170ead
+  cloudProjectId: 1a548205-2133-41b5-bdd6-d5bfc215e659
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: One of You 2026-09-16_14-58-19
-  organizationId: buravchik10
+  projectName: One of You 2026-09-16_13-17-41
+  organizationId: alexzh2607
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
