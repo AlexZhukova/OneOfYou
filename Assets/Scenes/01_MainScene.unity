@@ -3085,7 +3085,7 @@ MonoBehaviour:
   standingHeight: 2
   playerCamera: {fileID: 1321514691}
   gravity: -9.81
-  jumpHeight: 1.5
+  jumpHeight: 1
 --- !u!143 &1416135754
 CharacterController:
   m_ObjectHideFlags: 0
