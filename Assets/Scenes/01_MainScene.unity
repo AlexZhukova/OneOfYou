@@ -167,10 +167,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: eb73773e00d16c24a9d62e3989fbd41e, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -6983707741116640089, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: eb73773e00d16c24a9d62e3989fbd41e, type: 3}
       propertyPath: m_Name
       value: bodypart-tail
@@ -641,10 +637,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: b2f771258bab0074d8f4ed9c58eb068a, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 360388842983368876, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: b2f771258bab0074d8f4ed9c58eb068a, type: 3}
       propertyPath: m_Name
       value: bodypart-eye
@@ -1652,10 +1644,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: 0bd4ccec30b3c014da7a253221afa148, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -3261818004215289534, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: 0bd4ccec30b3c014da7a253221afa148, type: 3}
       propertyPath: m_Name
       value: bodypart-clothes
@@ -2728,10 +2716,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: 04ff2376742f6614c83a56ca0d83bd95, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -4105045582642770920, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: 04ff2376742f6614c83a56ca0d83bd95, type: 3}
       propertyPath: m_Name
       value: bodypart-ears
@@ -3402,10 +3386,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: 3fe60868efa5bf3428ab9ea2acce2bc2, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 1214283939097084530, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: 3fe60868efa5bf3428ab9ea2acce2bc2, type: 3}
       propertyPath: m_Name
       value: bodypart-horns
@@ -3463,10 +3443,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: 15db5b6a75c1c8a4a8579c1bb72f9ac5, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -8998915402303693396, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: 15db5b6a75c1c8a4a8579c1bb72f9ac5, type: 3}
       propertyPath: m_Name
       value: bodypart-teeth
@@ -3794,10 +3770,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: 4bf834da16a44f749bcf75d9bf2e8b24, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 7384567162086786122, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: 4bf834da16a44f749bcf75d9bf2e8b24, type: 3}
       propertyPath: m_Name
       value: bodypart-mask
@@ -4687,10 +4659,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: 4f7aec9f0eab3b84f9de28fef29218ca, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 7559033038051859890, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: 4f7aec9f0eab3b84f9de28fef29218ca, type: 3}
       propertyPath: m_Name
       value: bodypart-cloak
@@ -5094,10 +5062,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5562673334438455996, guid: eeab292dbaf8f364aa8c352590406f74, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -5017437812508297076, guid: 47e0a4fd23766c44bb4bcbab43f5fae6, type: 3}
     - target: {fileID: 7839413611656605750, guid: eeab292dbaf8f364aa8c352590406f74, type: 3}
       propertyPath: m_Name
       value: bodypart-hair
