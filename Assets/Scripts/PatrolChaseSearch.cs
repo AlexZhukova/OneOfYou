@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class GuardAI : MonoBehaviour
@@ -19,6 +20,11 @@ public class GuardAI : MonoBehaviour
     public ItemData itemData; // Reference to the ItemData scriptable object <-- DRAG THIS INTO THE INSPECTOR
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
     [SerializeField] private Mode mode = Mode.Patrol;
+    [SerializeField] public UnityEvent onPatrolExtraEvent;
+    [SerializeField] public UnityEvent onChaseExtraEvent;
+    [SerializeField] public UnityEvent onSearchExtraEvent;
+    [SerializeField] public UnityEvent onIdleExtraEvent;
+    [SerializeField] public UnityEvent onWanderExtraEvent;
 
 
 
@@ -69,6 +75,7 @@ public class GuardAI : MonoBehaviour
                     animator.SetBool("Chase", false);
                     animator.SetBool("Search", false);
                     animator.SetBool("Idle", false);
+                    onPatrolExtraEvent?.Invoke();
                 }
                 break;
 
@@ -83,6 +90,7 @@ public class GuardAI : MonoBehaviour
                     animator.SetBool("Chase", true);
                     animator.SetBool("Search", false);
                     animator.SetBool("Idle", false);
+                    onChaseExtraEvent?.Invoke();
                     if (Vector3.Distance(transform.position, player.position) <= attackRange)
                     {
                         // Attack logic here
@@ -106,6 +114,7 @@ public class GuardAI : MonoBehaviour
                     animator.SetBool("Chase", false);
                     animator.SetBool("Search", true);
                     animator.SetBool("Idle", false);
+                    onSearchExtraEvent?.Invoke();
                 }
                 break;
 
@@ -123,6 +132,7 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Chase", false);
                 animator.SetBool("Search", false);
                 animator.SetBool("Idle", true);
+                onIdleExtraEvent?.Invoke();
                 break;
             case Mode.Wander:
                 patrolIndex = (patrolIndex + 1) % patrolPoints.Length; // Patrol points are used for wandering as well, doesn't see the player
@@ -131,6 +141,7 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Chase", false);
                 animator.SetBool("Search", false);
                 animator.SetBool("Idle", false);
+                onWanderExtraEvent?.Invoke();
                 break;
         }
     }
