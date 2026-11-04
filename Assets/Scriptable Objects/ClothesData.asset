@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
   itemName: Clothes
   icon: {fileID: 21300000, guid: af17869cdac34d541be989b017a3986b, type: 3}
-  Buttonprefab: {fileID: 0}
+  bodyRegion: 1

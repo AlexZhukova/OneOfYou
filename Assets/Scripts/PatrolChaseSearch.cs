@@ -2,10 +2,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+public enum QTEType
+{
+    Classic,
+    Face,
+    Body
+}
 
 [RequireComponent(typeof(NavMeshAgent))]
 public class GuardAI : MonoBehaviour
 {
+    [Header("Quick Time Event")]
+    [SerializeField] private QTEType qteType = QTEType.Classic;
+
+    public QTEType QteType => qteType;
+
     [SerializeField] private DialogueManager dialogueManager;
 
     [Header("Dialogue")]

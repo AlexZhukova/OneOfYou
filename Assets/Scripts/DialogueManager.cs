@@ -13,6 +13,8 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject answersPanel;
     [SerializeField] private GameObject answerPrefab;
     [SerializeField] private BodyPartQTEManager bodyPartQTEManager;
+    [SerializeField] private FaceQTEManager faceQTEManager;
+    [SerializeField] private BodyQTEManager bodyQTEManager;
 
     private DialogueData dialogueData;
 
@@ -168,16 +170,32 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+
     private void SelectAnswer(int nextNodeIndex)
     {
         if (nextNodeIndex == -1)
         {
-            StartBodyPartQTE();
+            switch (currentGuard.QteType)
+            {
+                case QTEType.Classic:
+                    StartBodyPartQTE();
+                    break;
+
+                case QTEType.Face:
+                    StartFaceQTE();
+                    break;
+
+                case QTEType.Body:
+                    StartBodyQTE();
+                    break;
+            }
+
             return;
         }
 
         ShowNode(nextNodeIndex);
     }
+
     private void ClearAnswers()
     {
         foreach (Transform child in answersPanel.transform)
@@ -259,5 +277,24 @@ public class DialogueManager : MonoBehaviour
         Debug.Log("QTE returned FAILED to DialogueManager");
 
         DialogueFailed();
+    }
+    private void StartFaceQTE()
+    {
+        dialogueActive = false;
+
+        ClearAnswers();
+        dialoguePanel.SetActive(false);
+
+        faceQTEManager.SetDialogueManager(this);
+        faceQTEManager.StartTestQTE(currentGuard.itemData);
+    }
+    private void StartBodyQTE()
+    {
+        dialogueActive = false;
+
+        ClearAnswers();
+        dialoguePanel.SetActive(false);
+
+        bodyQTEManager.StartBodyQTE(currentGuard.itemData, this);
     }
 }
