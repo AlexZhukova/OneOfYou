@@ -4,30 +4,60 @@ using System.Collections.Generic;
 
 public class Footsteps : MonoBehaviour
 {
-
+    [Header("Audio")]
     public List<AudioClip> audioFootsteps;
     public AudioSource footstepSource;
-    private Vector3 prevPosition;
-    private Vector3 currentPosition;
-    public float minDistance = 1;
+
+    [Header("Settings")]
     public Transform objectTransform;
+    public float stepInterval = 0.45f;
+    public float minMovementSpeed = 0.1f;
 
-    void Start()
+    private Vector3 previousPosition;
+    private float stepTimer;
+
+
+    private void Start()
     {
-        prevPosition = objectTransform.position;
+        if (objectTransform == null)
+            objectTransform = transform;
+
+        previousPosition = objectTransform.position;
     }
 
-    void Update()
+    private void Update()
     {
-        currentPosition = objectTransform.position;
-        if (Vector3.Distance(currentPosition, prevPosition) > minDistance)
+        Vector3 currentPosition = objectTransform.position;
+
+        Vector3 movement = currentPosition - previousPosition;
+        movement.y = 0f;
+
+        float speed = movement.magnitude / Mathf.Max(Time.deltaTime, 0.0001f);
+
+        previousPosition = currentPosition;
+
+        if (speed < minMovementSpeed)
         {
-            footstepSource.Play();
-            prevPosition = objectTransform.position;
+            stepTimer = 0f;
+            return;
         }
-        if (Vector3.Distance(currentPosition, prevPosition) == 0)
+        stepTimer -= Time.deltaTime;
+
+        if (stepTimer <= 0f)
         {
-            footstepSource.Stop();
+            PlayFootstep();
+            stepTimer = stepInterval;
         }
     }
+
+    private void PlayFootstep()
+    {
+        if (footstepSource == null || audioFootsteps.Count == 0)
+            return;
+        AudioClip clip = audioFootsteps[Random.Range(0, audioFootsteps.Count)];
+
+        if (clip != null)
+            footstepSource.PlayOneShot(clip);
+    }
+
 }
