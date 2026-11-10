@@ -467,6 +467,8 @@ MonoBehaviour:
   answersPanel: {fileID: 830203219}
   answerPrefab: {fileID: 3417066768884627539, guid: b9c76cdd6b6a3d94ca2927fa538f9109, type: 3}
   bodyPartQTEManager: {fileID: 698089626}
+  faceQTEManager: {fileID: 0}
+  bodyQTEManager: {fileID: 0}
   dialogueTime: 10
   turnSpeed: 3
 --- !u!4 &139415115
@@ -4833,7 +4835,7 @@ PrefabInstance:
     - target: {fileID: 1100763882162140508, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: ca37edaaff95c5442ad64460722e8f64, type: 2}
+      objectReference: {fileID: 9100000, guid: ebeeb66c19634f749b549044ee35b084, type: 2}
     - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: itemData
       value: 
