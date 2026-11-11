@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: db83fd1269cb2874383bd40854bf780e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -40.585033
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db83fd1269cb2874383bd40854bf780e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.05
+      value: 0.09999982
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db83fd1269cb2874383bd40854bf780e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 37.757816
+      value: -0.64
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: db83fd1269cb2874383bd40854bf780e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -166,17 +166,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8f4f54cecbaa984d97887e53b7676a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GuardAI
+  qteType: 0
+  dialogueManager: {fileID: 0}
+  dialogueData: {fileID: 11400000, guid: 52d69a5d20e63404aa025bf063f97978, type: 2}
   patrolPoints:
   - {fileID: 0}
   - {fileID: 0}
-  sightRange: 8
+  sightRange: 11.61
   attackRange: 1.5
   searchTime: 3
-  idleTime: 2
   deatharea: {fileID: 0}
-  dialogueText: {fileID: 0}
-  timerText: {fileID: 0}
+  itemData: {fileID: 11400000, guid: eef5416b072957a4ebdcc2aaa56e69e4, type: 2}
   mode: 0
+  onPatrolExtraEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onChaseExtraEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onSearchExtraEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onIdleExtraEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onWanderExtraEvent:
+    m_PersistentCalls:
+      m_Calls: []
   stoppingDistance: 2.48
   playerDead: 1
 --- !u!95 &1100763882162140508
@@ -188,8 +204,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8063181849639174023}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: db83fd1269cb2874383bd40854bf780e, type: 3}
-  m_Controller: {fileID: 9100000, guid: ac404aa10b8b2e141b211f4b60287dfe, type: 2}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebeeb66c19634f749b549044ee35b084, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
