@@ -32,7 +32,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: root|rigAction.001_rig
+      name: walk
       takeName: root|rigAction.001_rig
       internalID: 35777407515442973
       firstFrame: 0
@@ -61,7 +61,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: root|rigAction_rig
+      name: run
       takeName: root|rigAction_rig
       internalID: -4743005325194220942
       firstFrame: 0
