@@ -19,6 +19,7 @@ public class BodyQTEManager : MonoBehaviour
 
     private float timeRemaining;
     private bool qteActive;
+    public bool IsQTEActive => qteActive;
 
     private ItemData requiredItem;
     private DialogueManager dialogueManager;

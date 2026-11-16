@@ -39,6 +39,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (controlsLocked || Time.timeScale == 0f)
+            return;
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -76,18 +79,15 @@ public class PlayerController : MonoBehaviour
         playerVelocity.y += gravity * Time.deltaTime;
         characterController.Move((moveDirection * currentMoveSpeed + playerVelocity) * Time.deltaTime);
 
-        if (!controlsLocked)
-        {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
 
-            transform.Rotate(0, mouseX * lookSpeed, 0);
+        transform.Rotate(0, mouseX * lookSpeed, 0);
 
-            pitch -= mouseY * lookSpeed;
-            pitch = Mathf.Clamp(pitch, -90f, 90f);
+        pitch -= mouseY * lookSpeed;
+        pitch = Mathf.Clamp(pitch, -90f, 90f);
 
-            playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
-        }
+        playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
 
     }
 
