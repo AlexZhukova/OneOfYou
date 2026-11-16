@@ -2234,7 +2234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1944811639, guid: b3492f7351004f140aa7283006ed367b, type: 3}
+  m_Sprite: {fileID: -1944811639, guid: 543352f584d60f24f808e313ae174b23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2340,7 +2340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -8870668840019107571, guid: 9078753b7d77d4e45a857bf047574200, type: 3}
+  m_Sprite: {fileID: -8870668840019107571, guid: 027515c58c0d6b34587e89423bf6154b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2718,7 +2718,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -501148012, guid: 9078753b7d77d4e45a857bf047574200, type: 3}
+  m_Sprite: {fileID: -501148012, guid: 027515c58c0d6b34587e89423bf6154b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3549,7 +3549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -194651911, guid: b3492f7351004f140aa7283006ed367b, type: 3}
+  m_Sprite: {fileID: -194651911, guid: 543352f584d60f24f808e313ae174b23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5423,15 +5423,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 351276909629657560, guid: eb73773e00d16c24a9d62e3989fbd41e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.19920552
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 351276909629657560, guid: eb73773e00d16c24a9d62e3989fbd41e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.359
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 351276909629657560, guid: eb73773e00d16c24a9d62e3989fbd41e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.069743
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 351276909629657560, guid: eb73773e00d16c24a9d62e3989fbd41e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -6546,7 +6546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7001160561768492306, guid: b3492f7351004f140aa7283006ed367b, type: 3}
+  m_Sprite: {fileID: -7001160561768492306, guid: 543352f584d60f24f808e313ae174b23, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
