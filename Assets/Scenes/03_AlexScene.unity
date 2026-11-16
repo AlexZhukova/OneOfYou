@@ -4970,6 +4970,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1100763882162140508, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: db83fd1269cb2874383bd40854bf780e, type: 3}
+    - target: {fileID: 1100763882162140508, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1100763882162140508, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are already bound by a Humanoid avatar. These transforms can only be changed by Humanoid clips.\n\tTransform 'spine_01.x'\n\tTransform 'shoulder.r'\n\tTransform 'index1_base.l'\n\tTransform 'forearm_stretch.r'\n\tTransform 'shoulder.l'\n\tTransform 'head.x'\n\tTransform 'hand.l'\n\tTransform 'forearm_stretch.l'\n\tTransform 'spine_01.x'\n\tTransform 'shoulder.r'\n\tand more ...\n\tFrom animation clip 'MotherIdle'"
+      objectReference: {fileID: 0}
     - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: deatharea
       value: 
@@ -5033,6 +5045,10 @@ PrefabInstance:
     - target: {fileID: 7254733332799219005, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041386682186300667, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: m_Acceleration
+      value: 8.23
       objectReference: {fileID: 0}
     - target: {fileID: 8063181849639174023, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: m_Name
