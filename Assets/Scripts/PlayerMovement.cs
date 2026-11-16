@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if(controlsLocked)
+        if (controlsLocked || Time.timeScale == 0f)
             return;
        
         if (controller.isGrounded && velocityY < 0)

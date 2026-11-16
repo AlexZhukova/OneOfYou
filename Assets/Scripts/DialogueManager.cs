@@ -24,6 +24,7 @@ public class DialogueManager : MonoBehaviour
     private float timeRemaining;
     private GuardAI currentGuard;
     private bool dialogueActive;
+    public bool IsDialogueOpen => dialoguePanel.activeInHierarchy;
     private PlayerMovement playerMovement;
     private PlayerController playerController;
     private Transform playerTransform;

@@ -17,6 +17,7 @@ public class BodyPartQTEManager : MonoBehaviour
 
     private float timeRemaining;
     private bool qteActive;
+    public bool IsQTEActive => qteActive;
 
     private ItemData correctItem;
     private DialogueManager dialogueManager;

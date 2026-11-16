@@ -19,6 +19,7 @@ public class FaceQTEManager : MonoBehaviour
 
     private float timeRemaining;
     private bool qteActive;
+    public bool IsQTEActive => qteActive;
 
     [Header("Testing")]
     [SerializeField] private ItemData testItem;
