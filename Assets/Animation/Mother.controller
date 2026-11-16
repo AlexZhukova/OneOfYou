@@ -14,10 +14,10 @@ AnimatorStateMachine:
     m_Position: {x: 10.863953, y: 189.18918, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8606792651571072524}
-    m_Position: {x: -168.90399, y: 315.54782, z: 0}
+    m_Position: {x: -170, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -476742597930429995}
-    m_Position: {x: 306.5692, y: 310.33716, z: 0}
+    m_Position: {x: 310, y: 310, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1738913158526569582}
     m_Position: {x: 120, y: 520, z: 0}
@@ -191,7 +191,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 636bc59108a3e664f8500ebad12f6a4f, type: 2}
+  m_Motion: {fileID: 35777407515442973, guid: 2de2f1b3c15ff494ead356215d162b48, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -422,7 +422,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MotherWalk
-  m_Speed: 0.5
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -5924243999775639693}
@@ -437,7 +437,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 51b22c1482874094cb906ee919c9f53f, type: 2}
+  m_Motion: {fileID: 35777407515442973, guid: 2de2f1b3c15ff494ead356215d162b48, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -611,7 +611,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 6443b91fd873a1440867ea6aede8fe4a, type: 2}
+  m_Motion: {fileID: -4743005325194220942, guid: 2de2f1b3c15ff494ead356215d162b48, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
