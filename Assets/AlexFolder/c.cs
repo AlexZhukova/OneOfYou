@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        lookSpeed = PlayerPrefs.GetFloat("MouseSensitivity", 2f);
         characterController = GetComponent<CharacterController>();
         if (characterController == null)
         {
@@ -90,7 +91,13 @@ public class PlayerController : MonoBehaviour
         playerCamera.transform.localRotation = Quaternion.Euler(pitch, 0f, 0f);
 
     }
+    public void SetSensitivity(float sensitivity)
+    {
+        lookSpeed = sensitivity;
 
+        PlayerPrefs.SetFloat("MouseSensitivity", sensitivity);
+        PlayerPrefs.Save();
+    }
     private void ToggleCrouch()
     {
         if (isCrouching)
