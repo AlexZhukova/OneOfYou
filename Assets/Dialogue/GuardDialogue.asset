@@ -13,15 +13,15 @@ MonoBehaviour:
   m_Name: GuardDialogue
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
-  - monsterText: 'There''s something strange about you... '
+  - monsterText: 'Hey there, dearie~...There''s something strange about you... '
     answers:
     - answerText: 'What do you mean? '
       nextNodeIndex: 1
-  - monsterText: Your teeth look strange...
+  - monsterText: You absolutely lack sence of style!
     answers:
-    - answerText: 'What''s wrong with my teeth? '
+    - answerText: 'What''s wrong with it? '
       nextNodeIndex: -1
-    - answerText: 'There''s nothing wrong with them. '
+    - answerText: 'Now that''s just nonsense, look-... '
       nextNodeIndex: -1
   successMonsterText: Oh... You're fine. See you around.
   successPlayerAnswer: I told you
