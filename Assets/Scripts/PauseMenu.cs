@@ -1,5 +1,6 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private FaceQTEManager faceQTEManager;
     [SerializeField] private BodyQTEManager bodyQTEManager;
     [SerializeField] private GameObject mainMenuContent;
+    [SerializeField] private Slider volumeSlider;
+    [SerializeField] private Slider sensitivitySlider;
 
     [Header("Dialogue")]
     [SerializeField] private DialogueManager dialogueManager;
@@ -17,7 +20,14 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
+        float savedSensitivity = PlayerPrefs.GetFloat("MouseSensitivity", 2f);
+        sensitivitySlider.SetValueWithoutNotify(savedSensitivity);
         pauseMenuPanel.SetActive(false);
+
+        float savedVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
+
+        AudioListener.volume = savedVolume;
+        volumeSlider.SetValueWithoutNotify(savedVolume);
     }
 
     private void Update()
@@ -47,6 +57,7 @@ public class PauseMenu : MonoBehaviour
     {
         isPaused = true;
 
+        mainMenuContent.SetActive(true);
         optionsPanel.SetActive(false);
         pauseMenuPanel.SetActive(true);
 
@@ -89,5 +100,11 @@ public class PauseMenu : MonoBehaviour
     {
         optionsPanel.SetActive(false);
         mainMenuContent.SetActive(true);
+    }
+    public void SetVolume(float volume)
+    {
+        AudioListener.volume = volume;
+        PlayerPrefs.SetFloat("MasterVolume", volume);
+        PlayerPrefs.Save();
     }
 }
