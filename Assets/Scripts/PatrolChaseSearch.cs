@@ -17,6 +17,14 @@ public class GuardAI : MonoBehaviour
 
     public QTEType QteType => qteType;
 
+    [System.Serializable]
+    public class QTEStage
+    {
+        public DialogueData dialogueData;
+        public QTEType qteType;
+        public ItemData requiredItem;
+    }
+
     [SerializeField] private DialogueManager dialogueManager;
 
     [Header("Dialogue")]
@@ -37,6 +45,10 @@ public class GuardAI : MonoBehaviour
     [SerializeField] public UnityEvent onIdleExtraEvent;
     [SerializeField] public UnityEvent onWanderExtraEvent;
 
+    [Header("QTE Sequence")]
+    [SerializeField] private List<QTEStage> qteStages = new List<QTEStage>();
+
+    public IReadOnlyList<QTEStage> QteStages => qteStages;
 
 
     private NavMeshAgent agent;
