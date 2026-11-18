@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEditor.dll::UnityEditor.ContainerWindow
   m_PixelRect:
     serializedVersion: 2
-    x: 8
-    y: 51
+    x: 378
+    y: 23
     width: 1024
     height: 768
   m_ShowMode: 4
@@ -356,7 +356,7 @@ MonoBehaviour:
       m_rawData: 1099511657952
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 1099511657441
+    - m_rawData: 1099511656995
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -390,7 +390,7 @@ MonoBehaviour:
       m_rawData: 0
     m_ExpandedIDs:
     - m_rawData: 0
-    - m_rawData: 1099511657441
+    - m_rawData: 1099511656995
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1174,9 +1174,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 578.05865, y: 280.09036, z: 0}
+    m_Target: {x: 2.8700457, y: -3.8746593, z: -26.818998}
     speed: 2
-    m_Value: {x: 556.4892, y: 206.66382, z: 0}
+    m_Value: {x: 578.05865, y: 280.09036, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1223,13 +1223,13 @@ MonoBehaviour:
     m_gridOpacity: 0.5
     m_NearestPlaneToHandleMode: 0
   m_Rotation:
-    m_Target: {x: 0, y: 0, z: 0, w: 1}
+    m_Target: {x: 0.3026608, y: -0.0100070825, z: 0.0031779266, w: 0.9530426}
     speed: 2
     m_Value: {x: -0, y: 0, z: -0, w: -1}
   m_Size:
-    m_Target: 200.41774
+    m_Target: 24.512922
     speed: 2
-    m_Value: 184.8439
+    m_Value: 200.41774
   m_Ortho:
     m_Target: 0
     speed: 2
