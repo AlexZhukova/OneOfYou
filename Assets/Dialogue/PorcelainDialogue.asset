@@ -20,9 +20,9 @@ MonoBehaviour:
   - monsterText: Isn't it strange not to wear someone else's skin for once?
     answers:
     - answerText: What do you mean?
-      nextNodeIndex: 1
+      nextNodeIndex: 2
     - answerText: U-huh.
-      nextNodeIndex: 1
+      nextNodeIndex: 2
   - monsterText: The world as humanity knew it crumbled, no need to hide who you are.
     answers:
     - answerText: Exactly...this is indeed who I am.
