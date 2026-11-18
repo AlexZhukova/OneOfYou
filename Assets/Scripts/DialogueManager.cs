@@ -23,6 +23,16 @@ public class DialogueManager : MonoBehaviour
 
     private float timeRemaining;
     private GuardAI currentGuard;
+    private int currentStageIndex = 0;
+    private QTEType CurrentQTEType =>
+    currentGuard.QteStages.Count > 0
+        ? currentGuard.QteStages[currentStageIndex].qteType
+        : currentGuard.QteType;
+
+    private ItemData CurrentRequiredItem =>
+        currentGuard.QteStages.Count > 0
+            ? currentGuard.QteStages[currentStageIndex].requiredItem
+            : currentGuard.itemData;
     private bool dialogueActive;
     public bool IsDialogueOpen => dialoguePanel.activeInHierarchy;
     private PlayerMovement playerMovement;
@@ -73,7 +83,16 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(GuardAI guard)
     {
         currentGuard = guard;
-        dialogueData = guard.DialogueData;
+        currentStageIndex = 0;
+
+        if (guard.QteStages.Count > 0)
+        {
+            dialogueData = guard.QteStages[currentStageIndex].dialogueData;
+        }
+        else
+        {
+            dialogueData = guard.DialogueData;
+        }
 
         StartCoroutine(SmoothTurnToGuard(guard.transform));
 
@@ -176,7 +195,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (nextNodeIndex == -1)
         {
-            switch (currentGuard.QteType)
+            switch (CurrentQTEType)
             {
                 case QTEType.Classic:
                     StartBodyPartQTE();
@@ -254,7 +273,7 @@ public class DialogueManager : MonoBehaviour
         ClearAnswers();
         dialoguePanel.SetActive(false);
 
-        bodyPartQTEManager.StartTestQTE(currentGuard.itemData, this);
+        bodyPartQTEManager.StartTestQTE(CurrentRequiredItem, this);
     }
     public void QTESucceeded()
     {
@@ -270,7 +289,7 @@ public class DialogueManager : MonoBehaviour
 
         timerSlider.value = 0f;
 
-        CreateAnswer(dialogueData.successPlayerAnswer, DialogueSucceeded);
+        CreateAnswer(dialogueData.successPlayerAnswer, ContinueAfterQTE);
     }
 
     public void QTEFailed()
@@ -287,7 +306,7 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
 
         faceQTEManager.SetDialogueManager(this);
-        faceQTEManager.StartTestQTE(currentGuard.itemData);
+        faceQTEManager.StartTestQTE(CurrentRequiredItem);
     }
     private void StartBodyQTE()
     {
@@ -296,6 +315,26 @@ public class DialogueManager : MonoBehaviour
         ClearAnswers();
         dialoguePanel.SetActive(false);
 
-        bodyQTEManager.StartBodyQTE(currentGuard.itemData, this);
+        bodyQTEManager.StartBodyQTE(CurrentRequiredItem, this);
+    }
+    private void ContinueAfterQTE()
+    {
+        // Check if another QTE stage exists
+        if (currentGuard.QteStages.Count > currentStageIndex + 1)
+        {
+            currentStageIndex++;
+
+            dialogueData = currentGuard.QteStages[currentStageIndex].dialogueData;
+
+            dialogueActive = true;
+            dialoguePanel.SetActive(true);
+
+            ShowNode(0);
+        }
+        else
+        {
+            // All QTE stages completed
+            DialogueSucceeded();
+        }
     }
 }
