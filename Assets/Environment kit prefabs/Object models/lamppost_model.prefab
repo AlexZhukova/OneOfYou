@@ -175,6 +175,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 5bc792acf8697d840af4012ef8ed82d9, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: f47ed8bcfa3e0be4980c77cd4df6ab97, type: 2}
     - target: {fileID: 919132149155446097, guid: 5bc792acf8697d840af4012ef8ed82d9, type: 3}
       propertyPath: m_Name
       value: lamppost_model

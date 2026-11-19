@@ -39,6 +39,7 @@ public class GuardAI : MonoBehaviour
     public ItemData itemData; // Reference to the ItemData scriptable object <-- DRAG THIS INTO THE INSPECTOR
     private enum Mode { Patrol, Chase, Search, Idle, Wander }
     [SerializeField] private Mode mode = Mode.Patrol;
+    private Mode previousMode = Mode.Patrol;
     [SerializeField] public UnityEvent onPatrolExtraEvent;
     [SerializeField] public UnityEvent onChaseExtraEvent;
     [SerializeField] public UnityEvent onSearchExtraEvent;
@@ -113,7 +114,6 @@ public class GuardAI : MonoBehaviour
                     animator.SetBool("Chase", true);
                     animator.SetBool("Search", false);
                     animator.SetBool("Idle", false);
-                    onChaseExtraEvent?.Invoke();
                     if (Vector3.Distance(transform.position, player.position) <= attackRange)
                     {
                         // Attack logic here
@@ -166,6 +166,30 @@ public class GuardAI : MonoBehaviour
                 animator.SetBool("Idle", false);
                 onWanderExtraEvent?.Invoke();
                 break;
+        }
+
+        // Handle mode transition events
+        if (mode != previousMode)
+        {
+            switch (mode)
+            {
+                case Mode.Patrol:
+                    onPatrolExtraEvent?.Invoke();
+                    break;
+                case Mode.Chase:
+                    onChaseExtraEvent?.Invoke();
+                    break;
+                case Mode.Search:
+                    onSearchExtraEvent?.Invoke();
+                    break;
+                case Mode.Idle:
+                    onIdleExtraEvent?.Invoke();
+                    break;
+                case Mode.Wander:
+                    onWanderExtraEvent?.Invoke();
+                    break;
+            }
+            previousMode = mode;
         }
     }
     public void DialogueFailed()
