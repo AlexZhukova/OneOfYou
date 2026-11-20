@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 41309a3afc53b3543a04d32291de8c08, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -69.853065
+      value: 8.510583
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41309a3afc53b3543a04d32291de8c08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.73869
+      value: 0.19468398
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41309a3afc53b3543a04d32291de8c08, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -49.7
+      value: -39.00218
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 41309a3afc53b3543a04d32291de8c08, type: 3}
       propertyPath: m_LocalRotation.w
@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 41309a3afc53b3543a04d32291de8c08, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 29b93564c49452b4e9022306b29f766b, type: 2}
     - target: {fileID: 919132149155446097, guid: 41309a3afc53b3543a04d32291de8c08, type: 3}
       propertyPath: m_Name
       value: balcony
