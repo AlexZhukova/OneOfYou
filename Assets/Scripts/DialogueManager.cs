@@ -279,17 +279,33 @@ public class DialogueManager : MonoBehaviour
     {
         Debug.Log("QTE returned SUCCESS to DialogueManager");
 
+        ClearAnswers();
+
+        // If there is another stage, start its dialogue immediately
+        if (currentGuard.QteStages.Count > currentStageIndex + 1)
+        {
+            currentStageIndex++;
+
+            dialogueData = currentGuard.QteStages[currentStageIndex].dialogueData;
+
+            dialogueActive = true;
+            dialoguePanel.SetActive(true);
+
+            ShowNode(0);
+
+            return;
+        }
+
+        // Last QTE completed: show final dialogue
         dialogueActive = false;
 
         dialoguePanel.SetActive(true);
-
-        ClearAnswers();
 
         monsterText.text = dialogueData.successMonsterText;
 
         timerSlider.value = 0f;
 
-        CreateAnswer(dialogueData.successPlayerAnswer, ContinueAfterQTE);
+        CreateAnswer(dialogueData.successPlayerAnswer, DialogueSucceeded);
     }
 
     public void QTEFailed()

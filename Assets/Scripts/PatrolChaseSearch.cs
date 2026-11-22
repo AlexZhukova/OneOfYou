@@ -158,13 +158,16 @@ public class GuardAI : MonoBehaviour
                 onIdleExtraEvent?.Invoke();
                 break;
             case Mode.Wander:
-                patrolIndex = (patrolIndex + 1) % patrolPoints.Length; // Patrol points are used for wandering as well, doesn't see the player
-                agent.SetDestination(patrolPoints[patrolIndex].position);
+                if (arrived)
+                {
+                    patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
+                    agent.SetDestination(patrolPoints[patrolIndex].position);
+                }
+
                 animator.SetBool("Patrol", true);
                 animator.SetBool("Chase", false);
                 animator.SetBool("Search", false);
                 animator.SetBool("Idle", false);
-                onWanderExtraEvent?.Invoke();
                 break;
         }
 
@@ -222,5 +225,11 @@ public class GuardAI : MonoBehaviour
         agent.stoppingDistance = stoppingDistance;
 
         mode = Mode.Wander;
+
+        if (patrolPoints.Length > 0)
+        {
+            patrolIndex = (patrolIndex + 1) % patrolPoints.Length;
+            agent.SetDestination(patrolPoints[patrolIndex].position);
+        }
     }
 }

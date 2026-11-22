@@ -206369,6 +206369,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1705404529}
     - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: qteStages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: 'patrolPoints.Array.data[0]'
       value: 
       objectReference: {fileID: 1628019934}
@@ -206380,6 +206384,26 @@ PrefabInstance:
       propertyPath: 'patrolPoints.Array.data[2]'
       value: 
       objectReference: {fileID: 60071762}
+    - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: qteStages.Array.data[1].qteType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: qteStages.Array.data[0].dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 52d69a5d20e63404aa025bf063f97978, type: 2}
+    - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: qteStages.Array.data[0].requiredItem
+      value: 
+      objectReference: {fileID: 11400000, guid: eef5416b072957a4ebdcc2aaa56e69e4, type: 2}
+    - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: qteStages.Array.data[1].dialogueData
+      value: 
+      objectReference: {fileID: 11400000, guid: 23d91cf70677ef54fb1fc007174f89fc, type: 2}
+    - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
+      propertyPath: qteStages.Array.data[1].requiredItem
+      value: 
+      objectReference: {fileID: 11400000, guid: b6cefdd9e1e7d4c4da8f785fbd3f891a, type: 2}
     - target: {fileID: 5244546385663024344, guid: e66248c11b0fe3f448b65e6e26ae5de4, type: 3}
       propertyPath: onChaseExtraEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
