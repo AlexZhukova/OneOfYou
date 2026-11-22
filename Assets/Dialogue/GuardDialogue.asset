@@ -16,6 +16,10 @@ MonoBehaviour:
   - monsterText: 'Hey there, dearie~...There''s something strange about you... '
     answers:
     - answerText: 'What do you mean? '
+      nextNodeIndex: 1
+  - monsterText: 'I don''t know...you remind me of my good for nothing husband. That jerk! Always would munch something on the couch til his teeth fell off! '
+    answers:
+    - answerText: No-no my teeth are still here, see!
       nextNodeIndex: -1
   successMonsterText: Oh... You're fine.
   successPlayerAnswer: I told you

@@ -13,6 +13,20 @@ MonoBehaviour:
   m_Name: GuardDialogueSecond
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   nodes:
+  - monsterText: Oops! Sorry for lashing out on you, dearie, it is not you I would like to kill!
+    answers:
+    - answerText: 'It''s cool '
+      nextNodeIndex: 1
+    - answerText: Why do you hate him so much?
+      nextNodeIndex: 1
+  - monsterText: Don't even want to remember that! That guy just left me alone with two little critters to feed...
+    answers:
+    - answerText: ...
+      nextNodeIndex: 2
+  - monsterText: Wait a second, now that I had good look at you-...
+    answers:
+    - answerText: 'What''s up? '
+      nextNodeIndex: 3
   - monsterText: You absolutely lack sence of style!
     answers:
     - answerText: 'What''s wrong with it? '
